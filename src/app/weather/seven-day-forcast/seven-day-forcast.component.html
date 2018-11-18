@@ -1,4 +1,4 @@
-{{weather | json}}
+
 <div class="card-group" *ngIf="weather">
   <div class="card forcast-card" *ngFor="let day of weather.daily.data | slice:0:6" >
     <div class="card-body">
