@@ -1,0 +1,57 @@
+{{weather | json}}
+<div class="card-group" *ngIf="weather">
+  <div class="card forcast-card" *ngFor="let day of weather.daily.data | slice:0:6" >
+    <div class="card-body">
+      <div class="row" >
+        <div class="col"><i class="wi wi-sunrise" style="font-size: 1.3rem; color: #FF5F24;"></i> {{ day.sunriseTime * 1000 | date:'h:mm aa'}}</div>
+        <div class="col"><i class="wi wi-sunset" style="font-size: 1.3rem; color: #FF5F24;"></i> {{ day.sunsetTime * 1000 | date:'h:mm aa'}}</div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col d-flex justify-content-center" style="height: auto;" id="weatherIcon">
+          <i [ngClass]="getIconClass(day.icon)" style="font-size: 4rem;" class="weather-icon-grad"></i>
+        </div>
+      </div>
+
+
+      <div class="row mt-4">
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: .9rem; font-weight:bold;">Temperature</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: 1.8rem">{{ day.temperatureHigh | number:'1.0-0' }}&#176; / {{ day.temperatureLow | number:'1.0-0' }}&#176;</span>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: .9rem; font-weight:bold;">Humidity</span>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: .9rem; font-weight:bold;">Pressure</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: 1.1rem">{{ day.humidity }}</span>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <span style="font-size: 1.1rem">{{ day.pressure }}</span>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          {{ day.summary | slice:0:35}}
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer  d-flex justify-content-center"><span style="font-size: 1.7rem;">{{ day.time * 1000 | date:'EEEE' }}</span> </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,30 @@
+
+
+<div style="background-color: rgba(0, 0, 0, .6);" class="rounded-bottom">
+  <div style="width:100%;" class="d-flex justify-content-center rounded-bottom"><span style="font-size: 4.4rem; color: #ffffff">{{ now | date:'h:mm aa'}}</span></div>
+  <div style="width:100%;" class="d-flex justify-content-center rounded-bottom"><span style="font-size:1.4rem; font-weight:bold; color: #8A8A8A">{{ now | date:'LLLL d yyyy'}}</span></div>
+</div>
+
+
+<div class=" d-flex justify-content-center mt-3">
+  <h2>{{ userData.city}}, {{userData.region}}</h2>
+</div>
+
+<hr>
+
+<div *ngIf="weather">
+  <div class="d-flex justify-content-center mb-3" >
+    <span style="font-size: 10rem; margin:0; display: inline-block; line-height: 10rem;" class="black-gray-grad">{{ weather.currently.temperature | number:'1.0-0'}}&#176;</span>
+  </div>
+
+
+  <div class="d-flex justify-content-center" style="padding-top: 10px;">
+    <i [ngClass]="getIconClass(weather.currently.icon)" style="font-size: 9rem; color: white; margin-top:15px;" class="weather-icon-grad"></i>
+  </div>
+
+  <div *ngIf="weather" class="d-flex justify-content-center">
+    <div><span style="font-size: 2em;">{{weather.currently.summary}}</span></div>
+  </div>
+
+</div>
+

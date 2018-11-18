@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-2 rounded" style="background-color: rgba(245, 245, 245, .6);">
+    <current-weather [weather]="weather" [userData]="userData"></current-weather>
+  </div>
+  <div class="col-10">
+    <div class="row">
+      <div class="col">
+        <seven-day-forcast [weather]="weather"></seven-day-forcast>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col rounded">
+        <iframe src="https://www.rainviewer.com/map.html?loc=44.5161,-69.4995,8&oFa=0&oC=0&oU=0&oCS=1&oF=0&oAP=0&rmt=4&c=1&o=83&lm=0&th=0" width="100%" frameborder="0" style="border:0;height:48vh; opacity:.7" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
